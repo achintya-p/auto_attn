@@ -35,8 +35,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/achintyapaningapalli/autoattn"
-Repository = "https://github.com/achintyapaningapalli/autoattn"
+Homepage = "https://github.com/achintya-p/auto_attn"
+Repository = "https://github.com/achintya-p/auto_attn"
 
 [tool.setuptools]
 packages = ["autoattn", "autoattn.backends"]
