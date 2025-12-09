@@ -7,10 +7,23 @@ name = "autoattn"
 version = "0.1.0"
 description = "Automatic routing between attention backends (dense, flash, sparse)"
 authors = [
-    { name="Your Name" }
+    { name = "Achintya Paningapalli" }
 ]
 readme = "README.md"
+license = { text = "MIT" }
 requires-python = ">=3.9"
+keywords = ["attention", "transformer", "llm", "flash-attention", "pytorch"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = [
     "torch>=2.0"
 ]
@@ -20,6 +33,10 @@ dev = [
     "pytest",
     "pytest-cov",
 ]
+
+[project.urls]
+Homepage = "https://github.com/achintyapaningapalli/autoattn"
+Repository = "https://github.com/achintyapaningapalli/autoattn"
 
 [tool.setuptools]
 packages = ["autoattn", "autoattn.backends"]
