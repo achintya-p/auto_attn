@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+autoattn/__init__.py
+autoattn/auto.py
+autoattn.egg-info/PKG-INFO
+autoattn.egg-info/SOURCES.txt
+autoattn.egg-info/dependency_links.txt
+autoattn.egg-info/requires.txt
+autoattn.egg-info/top_level.txt
+autoattn/backends/__init__.py
+autoattn/backends/base.py
+autoattn/backends/dense.py
+autoattn/backends/flash.py
+autoattn/backends/local.py
+tests/test_auto.py
+tests/test_backends.py

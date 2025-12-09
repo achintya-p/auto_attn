@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autoattn"
+version = "0.1.0"
+description = "Automatic routing between attention backends (dense, flash, sparse)"
+authors = [
+    { name="Your Name" }
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.setuptools]
+packages = ["autoattn", "autoattn.backends"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
