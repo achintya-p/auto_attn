@@ -40,6 +40,7 @@ class AutoAttention(nn.Module):
         num_heads: int,
         causal: bool = True,
         mode: str = "auto",  # "auto", "performance", "memory"
+        dropout: float = 0.0,
         device: Optional[torch.device] = None,
         window_size: int = 512,  # for local attention
     ):
@@ -49,6 +50,7 @@ class AutoAttention(nn.Module):
         self.num_heads = num_heads
         self.causal = causal
         self.mode = mode
+        self.dropout = dropout
 
         # This is just a default; in forward we always read q.device instead.
         self._default_device = device
@@ -56,14 +58,14 @@ class AutoAttention(nn.Module):
         # Register available backends
         backends = {}
 
-        # Dense attention - always available as fallback
-        backends["dense"] = DenseAttention(d_model, num_heads, causal)
+        # Dense attention - always available as fallback (includes learned projections)
+        backends["dense"] = DenseAttention(d_model, num_heads, causal, dropout)
 
         # Flash attention - uses PyTorch's SDPA, available on PyTorch 2.0+
-        backends["flash"] = FlashAttention(d_model, num_heads, causal)
+        backends["flash"] = FlashAttention(d_model, num_heads, causal, dropout)
 
         # Local/sparse attention - sliding window
-        backends["local"] = LocalAttention(d_model, num_heads, causal, window_size)
+        backends["local"] = LocalAttention(d_model, num_heads, causal, window_size, dropout)
 
         self.backends = nn.ModuleDict(backends)
 
