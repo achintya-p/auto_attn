@@ -7,6 +7,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: pypi  # Optional: links to GitHub environment
     permissions:
       id-token: write  # Required for trusted publishing
     
